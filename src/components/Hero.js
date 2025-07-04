@@ -1,6 +1,6 @@
 // src/components/Hero.js
-import React, { useState, useEffect, useRef } from 'react';
-import './Hero.css';
+import React, { useState, useEffect, useRef } from "react";
+import "./Hero.css";
 
 function Hero() {
   const [index, setIndex] = useState(0);
@@ -8,13 +8,12 @@ function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef(null);
   // const audioRef = useRef(null);
-  
+
   const rotatingTexts = [
     "Gain Real-World Skills with Exclusive Hands-On Projects in Data Science",
     "Receive a Minimum Stipend of ₹10,000/Month and a 6-Month Internship Certificate from Inikola",
     "Learn from Top Data Science Mentors and Boost Your Career with Crafting Brain & Inikola",
   ];
-  
 
   // Handle mouse movement for parallax effect
   useEffect(() => {
@@ -29,8 +28,9 @@ function Hero() {
 
     const heroElement = heroRef.current;
     if (heroElement) {
-      heroElement.addEventListener('mousemove', handleMouseMove);
-      return () => heroElement.removeEventListener('mousemove', handleMouseMove);
+      heroElement.addEventListener("mousemove", handleMouseMove);
+      return () =>
+        heroElement.removeEventListener("mousemove", handleMouseMove);
     }
   }, []);
 
@@ -41,13 +41,13 @@ function Hero() {
     }, 100);
 
     // Check if user has visited before
-    const hasVisited = localStorage.getItem('hasVisitedCraftingBrain');
-    
+    const hasVisited = localStorage.getItem("hasVisitedCraftingBrain");
+
     // Play welcome voice after animations start
     const voiceTimer = setTimeout(() => {
       playWelcomeVoice(!hasVisited);
       if (!hasVisited) {
-        localStorage.setItem('hasVisitedCraftingBrain', 'true');
+        localStorage.setItem("hasVisitedCraftingBrain", "true");
       }
     }, 1500);
 
@@ -67,56 +67,55 @@ function Hero() {
 
   // Text-to-speech function
   const playWelcomeVoice = (isFirstVisit) => {
-  if (!('speechSynthesis' in window)) return;
+    if (!("speechSynthesis" in window)) return;
 
-  const message = isFirstVisit
-    ? "Welcome to Crafting Brain, Where Automation Meets Intelligence"
-    : "Welcome back to Crafting Brain, Where Automation Meets Intelligence";
+    const message = isFirstVisit
+      ? "Welcome to Crafting Brain, Where Automation Meets Intelligence"
+      : "Welcome back to Crafting Brain, Where Automation Meets Intelligence";
 
-  const speak = () => {
-    const utterance = new SpeechSynthesisUtterance(message);
-    utterance.rate = 0.8;
-    utterance.pitch = 1;
-    utterance.volume = 0.7;
+    const speak = () => {
+      const utterance = new SpeechSynthesisUtterance(message);
+      utterance.rate = 0.8;
+      utterance.pitch = 1;
+      utterance.volume = 0.7;
 
-    const voices = speechSynthesis.getVoices();
-    const preferredVoice = voices.find(
-      (voice) =>
-        voice.name.includes("Google") ||
-        voice.name.includes("Microsoft") ||
-        voice.lang.includes("en-US")
-    );
+      const voices = speechSynthesis.getVoices();
+      const preferredVoice = voices.find(
+        (voice) =>
+          voice.name.includes("Google") ||
+          voice.name.includes("Microsoft") ||
+          voice.lang.includes("en-US")
+      );
 
-    if (preferredVoice) {
-      utterance.voice = preferredVoice;
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+
+      speechSynthesis.speak(utterance);
+    };
+
+    if (speechSynthesis.getVoices().length > 0) {
+      speak();
+    } else {
+      speechSynthesis.onvoiceschanged = () => {
+        speak();
+        speechSynthesis.onvoiceschanged = null; // cleanup
+      };
     }
-
-    speechSynthesis.speak(utterance);
   };
 
-  if (speechSynthesis.getVoices().length > 0) {
-    speak();
-  } else {
-    speechSynthesis.onvoiceschanged = () => {
-      speak();
-      speechSynthesis.onvoiceschanged = null; // cleanup
-    };
-  }
-};
-
-
   const handleEnrollNow = () => {
-    window.location.href = '/payment';
+    window.location.href = "/payment";
   };
 
   return (
-    <section 
-      className={`hero-container ${isLoaded ? 'loaded' : ''}`}
+    <section
+      className={`hero-container ${isLoaded ? "loaded" : ""}`}
       ref={heroRef}
       style={{
-        '--mouse-x': `${mousePosition.x}%`,
-        '--mouse-y': `${mousePosition.y}%`,
-        cursor: 'default' // Override any custom cursor
+        "--mouse-x": `${mousePosition.x}%`,
+        "--mouse-y": `${mousePosition.y}%`,
+        cursor: "default", // Override any custom cursor
       }}
     >
       {/* Animated particles background */}
@@ -126,9 +125,9 @@ function Hero() {
             key={i}
             className="particle"
             style={{
-              '--delay': `${Math.random() * 5}s`,
-              '--duration': `${5 + Math.random() * 10}s`,
-              '--size': `${2 + Math.random() * 4}px`
+              "--delay": `${Math.random() * 5}s`,
+              "--duration": `${5 + Math.random() * 10}s`,
+              "--size": `${2 + Math.random() * 4}px`,
             }}
           />
         ))}
@@ -158,21 +157,27 @@ function Hero() {
       <div className="hero-content">
         <div className="title-container">
           <h1 className="hero-title">
-            <span className="title-line">Elevate Your Data Science Career</span>
-            <span className="title-line">with Crafting Brain & Inikola</span>
+            <span className="title-line">
+              We Don't Just Build <span className="highlight-word">Skills</span>{" "}
+              We Craft <span className="highlight-word">Intelligent Minds!</span>
+            </span>
+            <span className="title-line">
+              Become the <span className="highlight-word">mind</span> behind
+              tomorrow's <span className="highlight-word">AI</span>
+            </span>
           </h1>
           <div className="title-glow"></div>
         </div>
-        
+
         <div className="rotating-text-container">
           <h2 className="rotating-text" key={index}>
             {rotatingTexts[index]}
           </h2>
         </div>
-        
+
         <div className="cta-container">
           <button className="cta-button" onClick={handleEnrollNow}>
-            <span className="button-text">Enroll Now</span>
+            <span className="button-text">Begin Journey</span>
             <div className="button-glow"></div>
             <div className="button-ripple"></div>
           </button>
