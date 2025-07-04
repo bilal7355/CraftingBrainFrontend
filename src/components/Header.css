@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #0d0d0d;
+  --bg-color: #000000;
   --accent-color: #ffe600;
   --text-light: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.8);
@@ -64,22 +64,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  
 }
 
-/* Logo Styles */
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
   display: flex;
-  gap: 0.15rem;
-  cursor: pointer;
-  letter-spacing: -0.02em;
+  align-items: center;
   text-decoration: none;
-  color: var(--text-light);
-  transition: var(--transition);
+}
+
+.video-logo {
+  width: 100px; /* Adjust size as needed */
+  height: 100px;
+  object-fit: cover;
+  align-items: flex-end;
+
 }
 
 .logo span {
