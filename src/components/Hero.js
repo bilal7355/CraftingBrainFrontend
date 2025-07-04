@@ -115,7 +115,8 @@ function Hero() {
       ref={heroRef}
       style={{
         '--mouse-x': `${mousePosition.x}%`,
-        '--mouse-y': `${mousePosition.y}%`
+        '--mouse-y': `${mousePosition.y}%`,
+        cursor: 'default' // Override any custom cursor
       }}
     >
       {/* Animated particles background */}

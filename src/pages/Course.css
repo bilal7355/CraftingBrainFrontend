@@ -1,0 +1,226 @@
+/* src/pages/Course.css */
+
+/* Theme colors */
+:root {
+  --background: #0a0a0a;
+  --gradient: linear-gradient(135deg, #54a0ff, #1e1e1e);
+  --accent: #ffcb6b;
+  --text: #f5f5f5;
+  --title: #ffffff;
+  --section-background: #181818;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes parallaxEffect {
+  from {
+    background-position: 50% 50%;
+  }
+  to {
+    background-position: 50% 60%;
+  }
+}
+
+/* Main page wrapper */
+.page-wrapper {
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Gradient banner */
+.gradient-banner {
+  width: 100%;
+  max-width: 1000px;
+  height: 300px;
+  background: var(--gradient);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--title);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+  animation: parallaxEffect 15s linear infinite alternate;
+}
+
+/* YouTube video container */
+.youtube-video {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 2rem;
+}
+
+.youtube-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Section styling */
+.section {
+  width: 100%;
+  max-width: 900px;
+  background: var(--section-background);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.section:hover {
+  background: #242424;
+  transform: translateY(-5px);
+}
+
+/* Section title */
+.section-title {
+  color: var(--accent);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+}
+
+/* Highlights list */
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.highlights-list li {
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+}
+
+.highlights-list li:before {
+  content: '➤ ';
+  color: var(--accent);
+}
+
+/* Accordion styling */
+.accordion {
+  background: #222;
+  color: var(--text);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.accordion-header {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.accordion-content {
+  padding: 1.2rem;
+  background: #333;
+  font-size: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.accordion-content.expanded {
+  max-height: 800px;
+}
+
+/* Sub-module styling */
+.sub-module {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.sub-module-title {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* CTA Button */
+.cta-button {
+  background: var(--accent);
+  color: var(--background);
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 2.5rem;
+  box-shadow: 0px 4px 15px rgba(255, 203, 107, 0.5);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #e5b464;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 1rem;
+  }
+  
+  .gradient-banner {
+    height: 200px;
+    font-size: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .accordion-header {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .accordion-content {
+    padding: 1rem;
+  }
+}
