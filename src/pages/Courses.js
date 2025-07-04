@@ -20,10 +20,11 @@ function Course({ showFooter = true }) {
   const handleEnrollNow = () => {
     navigate('/payment');
   };
+ 
 
   return (
     <div className="page-wrapper">
-     <PageWrapper>
+
       <div className="card-container">
       <BlogCard
         image="https://via.placeholder.com/300x180"
@@ -104,7 +105,6 @@ function Course({ showFooter = true }) {
         authorImage="https://via.placeholder.com/35"
       />
     </div>
-  </PageWrapper>
 
       {/* YouTube Video Embed */}
       <div className="youtube-video">
@@ -315,6 +315,7 @@ function Course({ showFooter = true }) {
 
       {showFooter && <Footer />}
     </div>
+    
   );
 }
 

@@ -224,7 +224,7 @@
     padding: 1rem;
   }
 }
-card-container {
+.card-container {
   display: flex;
   gap: 20px;
   overflow-x: auto;

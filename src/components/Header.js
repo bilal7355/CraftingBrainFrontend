@@ -12,7 +12,7 @@ function Header() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const craftingBrainText = "Crafting Brain".split("");
+
 
   // Scroll handler for auto-hide header
   useEffect(() => {
