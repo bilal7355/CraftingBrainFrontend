@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Course.css';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import BlogCard from "../components/cards";
 
 function Course({ showFooter = true }) {
   const [expandedModules, setExpandedModules] = useState([]);
@@ -22,9 +23,88 @@ function Course({ showFooter = true }) {
 
   return (
     <div className="page-wrapper">
-      <div className="gradient-banner">
-        Gen AI Data Science Internship Program
-      </div>
+     <PageWrapper>
+      <div className="card-container">
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Top Graphic Design Courses Online"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="SamuyI Joshi"
+        role="Graphics Designer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Best Web Design Courses Online in 2021"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="Devid Millar"
+        role="Web Developer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Android App Development Courses within 30 days"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="Rulius Hurry"
+        role="App Developer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Android App Development Courses within 30 days"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="Rulius Hurry"
+        role="App Developer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+    </div>
+    <div className="card-container">
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Top Graphic Design Courses Online"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="SamuyI Joshi"
+        role="Graphics Designer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Best Web Design Courses Online in 2021"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="Devid Millar"
+        role="Web Developer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Android App Development Courses within 30 days"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="Rulius Hurry"
+        role="App Developer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+      <BlogCard
+        image="https://via.placeholder.com/300x180"
+        title="Android App Development Courses within 30 days"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium venenatis sed finibus orci imperdiet."
+        author="Rulius Hurry"
+        role="App Developer"
+        date="15 April, 2024"
+        authorImage="https://via.placeholder.com/35"
+      />
+    </div>
+  </PageWrapper>
 
       {/* YouTube Video Embed */}
       <div className="youtube-video">
